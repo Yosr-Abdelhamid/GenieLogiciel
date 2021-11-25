@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,10 @@ import { DepartementsComponent } from './departements/departements.component';
 import { MedecinsComponent } from './medecins/medecins.component';
 import { ContactComponent } from './contact/contact.component';
 import { ActualitesComponent } from './actualites/actualites.component';
+import { RegisterComponent } from './register/register.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
+
 
 @NgModule({
   declarations: [
@@ -27,14 +33,17 @@ import { ActualitesComponent } from './actualites/actualites.component';
     DepartementsComponent,
     MedecinsComponent,
     ContactComponent,
-    ActualitesComponent
+    ActualitesComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

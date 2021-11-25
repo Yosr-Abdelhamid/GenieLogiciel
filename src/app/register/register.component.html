@@ -1,0 +1,181 @@
+<div class="back-to-home rounded d-none d-sm-block">
+    <a href="index.html" class="btn btn-icon btn-primary"><i data-feather="home" class="icons"></i></a>
+</div>
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css">
+<!-- Hero Start -->
+<section class="bg-half-150 d-table w-100 bg-light" style="background: url('../assets/images/bg/bg-lines-one.png') center;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-8">
+                <img src="/assets/img/logo.PNG" height="125" width="200"  class="mx-auto d-block" alt="">
+                <div class="card login-page bg-white shadow mt-4 rounded border-0">
+                    <div class="card-body">
+                        <h4 class="text-center">Inscription</h4>  
+                        <form action="https://shreethemes.in/doctris/layouts/landing/doctor-dashboard.html" class="login-form mt-4">
+                            <form
+     *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="Nom">Nom</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Nom"
+          [(ngModel)]="form.Nom"
+          required
+          minlength="3"
+          maxlength="40"
+          #Nom="ngModel"
+        />
+        <div class="alert-danger" *ngIf="Nom.errors && f.submitted">
+          <div *ngIf="Nom.errors.required">Vous devez saisir un Nom</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="Prenom">Prénom</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Prenom"
+          [(ngModel)]="form.Prenom"
+          required
+          minlength="3"
+          maxlength="20"
+          #Prenom="ngModel"
+        />
+        <div class="alert-danger" *ngIf="Prenom.errors && f.submitted">
+          <div *ngIf="Prenom.errors.required">Vous devez saisir un Prénom</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Adresse">Adresse</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Adresse"
+          [(ngModel)]="form.Adresse"
+          required
+          minlength="3"
+          maxlength="40"
+          #Adresse="ngModel"
+        />
+        <div class="alert-danger" *ngIf="Adresse.errors && f.submitted">
+          <div *ngIf="Adresse.errors.required">Vous devez saisir une Adresse</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="NumeroCNSS">NuméroCNSS</label>
+        <input
+          type="number"
+          class="form-control"
+          name="NumeroCNSS"
+          [(ngModel)]="form.NumeroCNSS"
+          required
+          minlength="3"
+          maxlength="40"
+          #NumeroCNSS="ngModel"
+        />
+        <div class="alert-danger" *ngIf="NumeroCNSS.errors && f.submitted">
+          <div *ngIf="NumeroCNSS.errors.required">Vous devez saisir un NumeroCNSS </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Telephone">Téléphone</label>
+        <input
+          type="number"
+          class="form-control"
+          name="Telephone"
+          [(ngModel)]="form.Telephone"
+          required
+          minlength="3"
+          maxlength="40"
+          #Telephone="ngModel"
+        />
+        <div class="alert-danger" *ngIf="Telephone.errors && f.submitted">
+          <div *ngIf="Telephone.errors.required">Vous devez saisir un Téléphone</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="DateNaiss">Date de Naissance</label>
+        <input
+          type="date"
+          class="form-control"
+          name="DateNaiss"
+          [(ngModel)]="form.DateNaiss"
+          required
+          minlength="3"
+          maxlength="20"
+          #DateNaiss="ngModel"
+        />
+        <div class="alert-danger" *ngIf="DateNaiss.errors && f.submitted">
+          <div *ngIf="DateNaiss.errors.required">Vous devez saisir une Date de Naissance</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="Email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="Email"
+          [(ngModel)]="form.Email"
+          required
+          email
+          #Email="ngModel"
+        />
+        <div class="alert-danger" *ngIf="Email.errors && f.submitted">
+          <div *ngIf="Email.errors.required">Vous devez saisir un Email</div>
+          <div *ngIf="Email.errors.email">
+            Email doit etre une adresse mail valide
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <div class="alert-danger" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors.required">Vous devez saisir un Mot de passe</div>
+          <div *ngIf="password.errors.minlength">
+            Mot de passe doit etre au moins 6 cararcteres
+          </div>
+        </div>
+      </div>
+      <br> <br> 
+      <div class="form-group" >
+        <div class="col-md-12">
+            <div class="d-grid">
+        <button class="btn btn-primary btn-block">S'inscrire</button>
+      </div>
+    </div>
+</div>
+
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Inscription echouée!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+        Inscription réussie !
+    </div>
+                        </form>
+                    </div>
+                </div><!---->
+            </div> <!--end col-->
+        </div><!--end row-->
+    </div> <!--end container-->
+</section><!--end section-->
+<!-- Hero End -->

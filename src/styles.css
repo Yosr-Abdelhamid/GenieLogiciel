@@ -1530,3 +1530,10 @@ body {
     color: #fff;
     text-decoration: none;
   }
+
+ .form-label{
+  font-weight: bold;
+ }
+ .card .card-body {
+  padding: 1.5rem;
+}
